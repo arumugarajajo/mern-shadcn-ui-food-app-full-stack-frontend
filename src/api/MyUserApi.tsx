@@ -101,6 +101,7 @@ export const useUpdateMyUser = () => {
     });
 
     if (!response.ok) {
+      console.log(response);
       throw new Error("Failed to update user");
     }
 
