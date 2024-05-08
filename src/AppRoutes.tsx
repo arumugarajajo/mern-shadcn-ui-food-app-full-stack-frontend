@@ -1,10 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./global.css";
 import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import ProductedRoute from "./auth/ProductedRoute";
+import ManageRestaurantPage from "./pages/ManageRestaurantPage";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -27,9 +28,17 @@ const AppRoutes = () => {
             </Layout>
           }
         />
+        <Route
+          path="/manage-restaurant"
+          element={
+            <Layout>
+              <ManageRestaurantPage />
+            </Layout>
+          }
+        />
       </Route>
 
-      <Route path="/logindemo" element={<span>Demo page</span>} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
