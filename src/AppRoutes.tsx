@@ -4,8 +4,9 @@ import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import UserProfilePage from "./pages/UserProfilePage";
-import ProductedRoute from "./auth/ProductedRoute";
 import ManageRestaurantPage from "./pages/ManageRestaurantPage";
+import SearchPage from "./pages/SearchPage";
+import ProtectedRoute from "./auth/ProtectedRoute";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -18,8 +19,15 @@ const AppRoutes = () => {
         }
       />
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
-
-      <Route element={<ProductedRoute />}>
+      <Route
+        path="/search/:city"
+        element={
+          <Layout showHero={false}>
+            <SearchPage />
+          </Layout>
+        }
+      />
+      <Route element={<ProtectedRoute />}>
         <Route
           path="/user-profile"
           element={
